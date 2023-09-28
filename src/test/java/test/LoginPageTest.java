@@ -1,5 +1,9 @@
 package test;
 
+import io.qameta.allure.Issue;
+import io.qameta.allure.Link;
+import io.qameta.allure.TmsLink;
+import jdk.jfr.Description;
 import model.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -18,7 +22,11 @@ public class LoginPageTest extends BaseTest {
         user = new User();
     }
 
-    @Test
+    @Description("Verify login on our site")
+    @Link("https://instagram.com/glebiy_")
+    @Issue("ISSUE-1")
+    @TmsLink("TMS-1")
+    @Test (description = "Test Login")
     public void checkSuccessfulLoginTest() {
         InventoryPageService inventoryPageService = loginPageService.login(user);
         String actualTextOfMainPageSection = inventoryPageService.getActualNameOfMainPageSection();

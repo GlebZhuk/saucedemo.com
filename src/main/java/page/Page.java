@@ -6,7 +6,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public abstract class Page {
     protected WebDriver driver = DriverSingleton.getInstance().getDriver();
-
     protected Page() {
         //Для активизации поиска через FindBy
         PageFactory.initElements(driver, this);

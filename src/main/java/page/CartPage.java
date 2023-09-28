@@ -7,12 +7,12 @@ public class CartPage extends Page {
     @FindBy(xpath = "//div[@class='inventory_item_name']")
     private WebElement itemName;
 
+    @FindBy(xpath = "//*[@id='checkout']")
+    private WebElement checkoutButton;
+
     public String getTextOfItemName() {
         return itemName.getText();
     }
-
-    @FindBy(xpath = "//*[@id='checkout']")
-    private WebElement checkoutButton;
 
     public CartPage clickCheckoutButton() {
         checkoutButton.click();

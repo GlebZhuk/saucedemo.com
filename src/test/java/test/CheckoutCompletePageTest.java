@@ -1,5 +1,9 @@
 package test;
 
+import io.qameta.allure.Issue;
+import io.qameta.allure.Link;
+import io.qameta.allure.TmsLink;
+import jdk.jfr.Description;
 import model.User;
 import model.UsersInfo;
 import org.testng.Assert;
@@ -23,8 +27,11 @@ public class CheckoutCompletePageTest extends BaseTest {
         user = new User();
         usersInfo = new UsersInfo();
     }
-
-    @Test
+    @Description("Verify successful buy")
+    @Link("https://instagram.com/glebiy_")
+    @Issue("ISSUE-3")
+    @TmsLink("TMS-3")
+    @Test(description = "verify buy", priority = 3)
     public void checkSuccessfulBuy() {
         inventoryPageService = loginPageService.login(user);
         cartPageService = inventoryPageService.addToCart();

@@ -1,5 +1,9 @@
 package test;
 
+import io.qameta.allure.Issue;
+import io.qameta.allure.Link;
+import io.qameta.allure.TmsLink;
+import jdk.jfr.Description;
 import model.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -17,14 +21,18 @@ public class CartPageTest extends BaseTest{
     public void setUp() {
         loginPageService = new LoginPageService();
         user = new User();
+        inventoryPageService = loginPageService.login(user);
     }
-    @Test
+    @Description("Verify add goods to cart")
+    @Link("https://instagram.com/glebiy_")
+    @Issue("ISSUE-2")
+    @TmsLink("TMS-2")
+    @Test(description = "verify cart",priority = 2)
     public void checkSuccessfulCartAdding (){
-        InventoryPageService inventoryPageService = loginPageService.login(user);
 
         CartPageService cartPageService=inventoryPageService.addToCart();
         String actualItemName= cartPageService.getItemName();
-        String expendedItemName ="Sauce Labs Backpack";
-        Assert.assertEquals(actualItemName,expendedItemName);
+        String expectedItemName ="Sauce Labs Backpack";
+        Assert.assertEquals(actualItemName,expectedItemName);
     }
 }

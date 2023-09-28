@@ -6,10 +6,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.testng.annotations.Listeners;
+import utils.Waiter;
 
 import java.time.Duration;
 
+@Listeners(TestListener.class)
 public class WebDriverFactory {
+
     private WebDriverFactory() {
     }
 
@@ -31,11 +35,13 @@ public class WebDriverFactory {
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--incognito");
                 chromeOptions.addArguments("--remote-allow-origins=*");
+                chromeOptions.setHeadless(true); //Браузер работает скрыто
                 driver = new ChromeDriver(chromeOptions);
             }
         }
+        Waiter waiter=new Waiter();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Waiter.WAIT_2_SECONDS));
 
         return driver;
     }
