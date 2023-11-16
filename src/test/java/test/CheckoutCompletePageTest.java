@@ -27,6 +27,7 @@ public class CheckoutCompletePageTest extends BaseTest {
         user = new User();
         usersInfo = new UsersInfo();
     }
+
     @Description("Verify successful buy")
     @Link("https://instagram.com/glebiy_")
     @Issue("ISSUE-3")
@@ -39,7 +40,7 @@ public class CheckoutCompletePageTest extends BaseTest {
         checkoutStepTwoPageService = checkoutStepOnePageService.loginInfo(usersInfo);
         checkoutCompletePageService = checkoutStepTwoPageService.clickFinishButton();
         String actualSuccessfulBuy = checkoutCompletePageService.getActualSuccessfulBuy();
-        Assert.assertEquals(actualSuccessfulBuy, "Thank you for your order!");
+        Assert.assertEquals(actualSuccessfulBuy, "Thank you for your order!","Buy is not success");
     }
 
 }

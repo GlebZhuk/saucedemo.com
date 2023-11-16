@@ -26,7 +26,7 @@ public class LoginPageTest extends BaseTest {
     @Link("https://instagram.com/glebiy_")
     @Issue("ISSUE-1")
     @TmsLink("TMS-1")
-    @Test (description = "Test Login")
+    @Test(description = "Test Login")
     public void checkSuccessfulLoginTest() {
         InventoryPageService inventoryPageService = loginPageService.login(user);
         String actualTextOfMainPageSection = inventoryPageService.getActualNameOfMainPageSection();

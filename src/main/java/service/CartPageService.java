@@ -9,10 +9,10 @@ public class CartPageService {
     public String getItemName() {
         return cartPage.getTextOfItemName();
     }
+
     @Step("Click button Continue")
     public CheckoutStepOnePageService clickContinueButton() {
         cartPage.clickCheckoutButton();
         return new CheckoutStepOnePageService();
     }
-
 }

@@ -39,11 +39,9 @@ public class WebDriverFactory {
                 driver = new ChromeDriver(chromeOptions);
             }
         }
-        Waiter waiter=new Waiter();
+        Waiter waiter = new Waiter();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Waiter.WAIT_2_SECONDS));
-
         return driver;
     }
 }
-

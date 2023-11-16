@@ -12,7 +12,7 @@ import service.CartPageService;
 import service.InventoryPageService;
 import service.LoginPageService;
 
-public class CartPageTest extends BaseTest{
+public class CartPageTest extends BaseTest {
     private InventoryPageService inventoryPageService;
     private LoginPageService loginPageService;
     private User user;
@@ -23,16 +23,16 @@ public class CartPageTest extends BaseTest{
         user = new User();
         inventoryPageService = loginPageService.login(user);
     }
+
     @Description("Verify add goods to cart")
     @Link("https://instagram.com/glebiy_")
     @Issue("ISSUE-2")
     @TmsLink("TMS-2")
-    @Test(description = "verify cart",priority = 2)
-    public void checkSuccessfulCartAdding (){
-
-        CartPageService cartPageService=inventoryPageService.addToCart();
-        String actualItemName= cartPageService.getItemName();
-        String expectedItemName ="Sauce Labs Backpack";
-        Assert.assertEquals(actualItemName,expectedItemName);
+    @Test(description = "verify cart", priority = 2)
+    public void checkSuccessfulCartAdding() {
+        CartPageService cartPageService = inventoryPageService.addToCart();
+        String actualItemName = cartPageService.getItemName();
+        String expectedItemName = "Sauce Labs Backpack";
+        Assert.assertEquals(actualItemName, expectedItemName, "Cart didn't add");
     }
 }

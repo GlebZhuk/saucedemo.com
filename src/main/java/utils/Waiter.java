@@ -19,22 +19,21 @@ public class Waiter {
     public Waiter() {
     }
 
-    public static WebElement waitElementToBeClickable (WebElement element){
+    public static WebElement waitElementToBeClickable(WebElement element) {
         return new WebDriverWait(DriverSingleton.getInstance().getDriver(), Duration.ofSeconds(WAIT_5_SECONDS))
                 .until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public static WebElement waitElementToBeVisible (WebElement element) {
+    public static WebElement waitElementToBeVisible(WebElement element) {
         return new WebDriverWait(DriverSingleton.getInstance().getDriver(), Duration.ofSeconds(WAIT_5_SECONDS))
                 .until(ExpectedConditions.visibilityOf(element));
     }
 
-    public static void fluentWaitElementToBeClickable (WebElement element) {
+    public static void fluentWaitElementToBeClickable(WebElement element) {
         new FluentWait<>(DriverSingleton.getInstance().getDriver())
                 .withTimeout(Duration.ofSeconds(WAIT_5_SECONDS))
                 .pollingEvery(Duration.ofSeconds(WAIT_500_MILLISECONDS))
                 .ignoring(NoSuchElementException.class)
-                .until((ExpectedCondition<Boolean>) webDriver ->element.isDisplayed() && element.isEnabled());
-
+                .until((ExpectedCondition<Boolean>) webDriver -> element.isDisplayed() && element.isEnabled());
     }
 }
